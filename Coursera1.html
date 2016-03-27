@@ -8,18 +8,22 @@
 			textarea{width:360px; heigth:50px}
 			label {width:180px; display:inline-block; text-align:right; vertical-align:top}
 			.nachalo {background:darkred; color:white; display:inline-block; width:60px; vertical-align:top; text-align:center}
+			.konec {background:darkmagenta; color:white;display:inline-block; width:60px; vertical-align:top; text-align:center}
+			.selector{display:inline-block; width:auto}
+			label:hover{font-size:20px}
 			
 		</style>
 	</head>
 	<body>
 		<h1>Please Enter Your Details For Our Dating Website!</h1>
-		<form method="post" enctype="multipart/form-data action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+		<form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="post" enctype="multipart/form-data">
+		
 			<fieldset>
 				<legend>Your Face</legend>
 				<label for="image" style="width:180px">Your image:</label>
 				<input type="file" id="image" name="image" required> <br>
 				<label for="preview">Image preview:</label>
-				<img id="preview">
+				<img id="preview" width="150px">
 			</fieldset>
 			
 			<fieldset>
@@ -29,8 +33,8 @@
 				<input type="text" id="name" name="feedback" required> <br>
 				
 				<label for="gender">Gender:</label>
-				<input type="radio" id="gender" name="gender" value="Male" required>Male	
-				<input type="radio" name="gender" value="Female" required>Female <br>
+				<input type="radio" id="gender" name="gender" value="Male" required> <span class="selector">Male</span>	
+				<input type="radio" name="gender" value="Female" required> <span class="selector">Female </span> <br>
 				
 				<label for="age">Age:</label>
 				<input type="number" id="age" name="age" value="18" required><br>
@@ -56,10 +60,10 @@
 				<legend>Your Indicators</legend>
 				
 				<label for="height">Height:</label>
-				<div class="nachalo">Short</div> <input type="range" id="height" min="0" max="100" value="50" name="height">Tall<br>
+				<div class="nachalo">Short</div> <input type="range" id="height" min="0" max="100" value="50" name="height"><div class="konec">Tall</div><br>
 				
 				<label for="salary">Salary:</label>
-				<div class="nachalo">Poor</div> <input type="range" id="salary" min="0" max="100" value="50" name="salary">Rich<br>
+				<div class="nachalo">Poor</div> <input type="range" id="salary" min="0" max="100" value="50" name="salary"><div class="konec">Rich</div>
  			</fieldset>
 			
 			<fieldset>
@@ -75,12 +79,13 @@
 				<textarea name="address" id="address"></textarea><br>
 				
 				<label for="method">Method to contact you:</label>
-				<input type="checkbox" id="method" name="Method" value="Email">Email
-				<input type="checkbox" name="Method" value="Whatsapp">Whatsapp
-				<input type="checkbox" name="Method" value="In-ap chat">In-ap chat
+				<input type="checkbox" id="method" name="Method" value="Email"> <span class="selector">Email</span>
+				<input type="checkbox" name="Method" value="Whatsapp"> <span class="selector">Whatsapp</span>
+				<input type="checkbox" name="Method" value="In-ap chat"> <span class="selector">In-ap chat</span>
 				
 			</fieldset>
-			<input type="Submit" value="Submit"
+			<input type="Submit" value="Submit">
 		</form>
+		<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
 	</body>
 </html>
