@@ -4,16 +4,26 @@
 		<meta charset="utf-8">
 		<title>Угадай цвет</title>
 		<script>
-			var colors=[];
+			var colors=["black","blue","green","red"];
 			var user_text;
 			var color_index;
-			var
+			var conec = false;
 			
-			function (do_game){
-			while(user_text!=)
-			}
 			
-		</script>
+			function do_game() {
+				color_index=Math.floor(Math.random()*5);
+				console.log(color_index);
+				
+				while(!conec){
+					user_text = prompt("Я загадал один из следующих цветов:\n\n" + colors.join()+"\n\nУгадай какой");
+						if(user_text==colors[color_index]){
+						alert("Ура!!!")
+						conec=true;
+						}
+				}
+				}
+		</script>	
+			
 	</head>
 	<body onload="do_game()">
 	</body>

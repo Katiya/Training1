@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Угадай цвет</title>
+		<script>
+			var colors=["aqua", "aquamarine", "black", "blue", "brown", "cyan", "green", "indigo", "lime", "magenta", "red", "silver", "tomato", "violet", "yellow"];
+			var user_text;
+			var color_index;
+			var conec = false;
+			var popytki=0;
+			
+			function do_game() {
+				color_index=Math.floor(Math.random()*15);
+				console.log(color_index);
+				
+				while(!conec){
+					user_text = prompt("Я загадала один из следующих цветов:\n\n" + colors.join(", ")+"\n\nУгадай какой");
+						popytki++
+						conec=proverka();
+						}
+			}
+			function proverka() {
+				var i=0;
+				while (colors[i]!=user_text && i<=colors.length){
+					i++;
+				}
+				 if (i>colors.length){
+				 alert ("Не пиши всякую фигню!!!");
+				 return false;
+				 }
+				 
+				 if (user_text>colors[color_index]){
+				 alert ("Мой цвет раньше по алфавиту!");
+				 return false;
+				 }
+				 
+				 if (user_text<colors[color_index]){
+				 alert ("Мой цвет позже по алфавиту!");
+				 return false;
+				 }
+				
+				document.body.style.background = user_text;
+				alert("Ура!!! А то я уж думал....\n\n"+ "Всего-то попытка №"+ popytki + ".......");
+				
+				 return true;
+				}
+				
+				
+			
+		</script>	
+			
+	</head>
+	<body onload="do_game()">
+	</body>
+</html>

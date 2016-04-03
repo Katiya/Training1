@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Угадай цвет</title>
+		<script>
+			var colors=["Aquamarine", "Bisque", "Cyan", "DarkRed", "LightBlue", "Yellow", "Green", "Brown", "Red", "Lime", "Orange", "Pink", "MediumBlue", "violet", "Black"];
+			var rucolors=["аквамарин", "бежевый", "бирюзовый", "бордовый", "голубой", "жёлтый", "зелёный", "коричневый", "красный", "лайм", "оранжевый", "розовый"; "синий", "фиолетвыый", "чёрный"];
+			var user_text;
+			var color_index;
+			var conec = false;
+			var popytki=0;
+			
+			function do_game() {
+				color_index=Math.floor(Math.random()*15);
+				console.log(color_index);
+				
+				while(!conec){
+					user_text = prompt("Я загадала один из следующих цветов:\n\n" + rucolors.join(", ")+"\n\nУгадай какой");
+						user_text_index=rucolors.indexOf(user_text);
+						popytki++
+						conec=proverka();
+						}
+			}
+			function proverka() {
+				var i=0;
+				while (rucolors[i]!=user_text && i<=rucolors.length){
+					i++;
+				}
+				 if (i>rucolors.length){
+				 alert ("Не пиши всякую фигню!!!");
+				 return false;
+				 }
+				 
+				 if (user_text_index>rucolors[color_index]){
+				 alert ("Мой цвет раньше по алфавиту!");
+				 return false;
+				 }
+				 
+				 if (user_text_index<rucolors[color_index]){
+				 alert ("Мой цвет позже по алфавиту!");
+				 return false;
+				 }
+				
+				document.body.style.background = colors{color_index};
+				alert("Ура!!!\n\n"+ "Всего-то попытка №"+ popytki + ".......");
+				
+				 return true;
+				}
+				
+				
+			
+		</script>	
+			
+	</head>
+	<body onload="do_game()">
+	</body>
+</html>
