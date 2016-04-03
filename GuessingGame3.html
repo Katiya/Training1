@@ -5,7 +5,7 @@
 		<title>Угадай цвет</title>
 		<script>
 			var colors=["Aquamarine", "Bisque", "Cyan", "DarkRed", "LightBlue", "Yellow", "Green", "Brown", "Red", "Lime", "Orange", "Pink", "MediumBlue", "violet", "Black"];
-			var rucolors=["аквамарин", "бежевый", "бирюзовый", "бордовый", "голубой", "жёлтый", "зелёный", "коричневый", "красный", "лайм", "оранжевый", "розовый"; "синий", "фиолетвыый", "чёрный"];
+			var rucolors=["аквамарин", "бежевый", "бирюзовый", "бордовый", "голубой", "жёлтый", "зелёный", "коричневый", "красный", "лайм", "оранжевый", "розовый", "синий", "фиолетовый", "чёрный"];
 			var user_text;
 			var color_index;
 			var conec = false;
@@ -32,17 +32,17 @@
 				 return false;
 				 }
 				 
-				 if (user_text_index>rucolors[color_index]){
+				 if (user_text_index>color_index){
 				 alert ("Мой цвет раньше по алфавиту!");
 				 return false;
 				 }
 				 
-				 if (user_text_index<rucolors[color_index]){
+				 if (user_text_index<color_index){
 				 alert ("Мой цвет позже по алфавиту!");
 				 return false;
 				 }
 				
-				document.body.style.background = colors{color_index};
+				document.body.style.background = colors[color_index];
 				alert("Ура!!!\n\n"+ "Всего-то попытка №"+ popytki + ".......");
 				
 				 return true;
