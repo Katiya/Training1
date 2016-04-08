@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>Игра с рожами</title>
+        <style>
+            img {
+				position:absolute;
+			}
+			div {
+				position:absolute;
+				width:500px;
+				height:500px;
+			}
+			#rightSide{
+				left:500px;
+				border-left:4px solid darkblue;
+			}
+			h1,p {color:darkblue}
+        </style>
+		<script>
+			
+			var numberOfFaces = 5;
+			function generateFaces() {
+			var theLeftSide = document.getElementById("leftSide");
+			var theRightSide = document.getElementById("rightSide");
+			var theBody = document.getElementsByTagName("body")[0];
+			
+				for(i=0; i<numberOfFaces; i++){
+					var mySmile=document.createElement("img");
+					
+					mySmile.src="smile.png";
+				
+					mySmile.style.left=Math.floor(Math.random()*400)+"px";
+					mySmile.style.top=Math.floor(Math.random()*400)+"px";
+					theLeftSide.appendChild(mySmile);
+					console.log(i);
+				}
+				
+			var dubleSmile = theLeftSide.cloneNode(true);
+			theRightSide.appendChild(dubleSmile);
+			dubleSmile.removeChild(dubleSmile.lastChild);
+			
+			theLeftSide.lastChild.onclick = function nextLevel(){
+				event.stopPropagation();
+				
+					
+					while(theLeftSide.firstChild){
+						theLeftSide.removeChild(theLeftSide.firstChild);
+					}
+					
+					while(theRightSide.firstChild){
+						theRightSide.removeChild(theRightSide.firstChild);
+					}
+				numberOfFaces+=5;	
+				generateFaces()
+			}
+			
+			theBody.onclick = function gameOver(){
+				alert("Конец игре! Не та рожа!!!");
+			theBody.onclick = null;
+			theLeftSide.lastChild.onclick = null;
+			
+			}
+							
+			}
+		</script>
+    </head>
+    <body onload="generateFaces()">
+		<h1>Найди рожу</h1>
+		<p>Найди такую рожу слева, которой нет справа, и щёлкни по ней</p>
+		<div id="leftSide"></div>
+		<div id="rightSide"></div>
+       
+    </body>
+</html>
